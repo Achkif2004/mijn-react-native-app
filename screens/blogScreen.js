@@ -15,14 +15,15 @@ const BlogScreen = ({ navigation }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("GEKREGEN DATA:", data); // << voeg dit toe om te debuggen
+        console.log("GEKREGEN DATA:", data); 
         if (data && data.items) {
-         const items = data.items.map((item) => ({
+        const items = data.items.map((item) => ({
             id: item._id || item.id,
-            title: item.name,
-            summary: item["post-summary"],
-            content: item["post-body"],
-            image: item["main-image"]?.url || "https://via.placeholder.com/300x200.png?text=No+Image",
+            title: item.fieldData.name,
+            date: item.fieldData.date,
+            summary: item.fieldData.paragraph?.slice(0, 100) + "...", 
+            content: item.fieldData.paragraph,
+            image: item.fieldData.image?.url || "https://via.placeholder.com/300x200.png?text=No+Image",
         }));
           
           setBlogs(items);

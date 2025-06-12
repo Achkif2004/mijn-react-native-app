@@ -1,4 +1,4 @@
-// screens/BlogDetail.js
+
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
@@ -8,9 +8,13 @@ const BlogDetail = ({ route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{blog.title}</Text>
-      <Text style={styles.date}>{blog.date}</Text>
+      <Text style={styles.date}>
+        {new Date(blog.date).toLocaleDateString()}
+      </Text>
       <Image source={{ uri: blog.image }} style={styles.image} />
       <Text style={styles.description}>{blog.content || blog.summary}</Text>
+      
+
     </View>
   );
 };

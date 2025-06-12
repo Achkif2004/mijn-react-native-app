@@ -1,4 +1,3 @@
-// screens/FAQ.js
 import React from 'react';
 import { ScrollView, Text, View, StyleSheet } from 'react-native';
 

@@ -1,18 +1,15 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet } from 'react-native';
 
-
-
 const BlogCard = ({ blog, navigation }) => {
   return (
-    <View style={styles.productCard}>
+    <View style={styles.blogCard}>
       <Image
-        source={{ uri: blog.image || "https://via.placeholder.com/300x200.png?text=No+Image" }}
+        source={{ uri: blog.image }}
         style={styles.image}
-       />
-
+      />
       <Text style={styles.title}>{blog.title}</Text>
-      <Text style={styles.summary} numberOfLines={2}>
+      <Text style={styles.summary} numberOfLines={3}>
         {blog.summary}
       </Text>
       <Button
@@ -24,40 +21,37 @@ const BlogCard = ({ blog, navigation }) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   blogCard: {
     backgroundColor: 'white',
-    padding: 10,
+    padding: 20,
     borderRadius: 10,
+    marginBottom: 30, 
+    alignItems: 'center', 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 3,
-    elevation: 5,
-    marginTop: 50,
-    alignItems: 'center',
-    marginBottom: 20,
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 4,
   },
   image: {
-    width: 150,
-    height: 150,
-    marginBottom: 10,
+    width: 200,
+    height: 200,
     borderRadius: 10,
+    marginBottom: 15,
+    resizeMode: 'cover',
   },
   title: {
     color: 'black',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 10,
+    marginBottom: 8,
     textAlign: 'center',
-    width: '100%',
   },
   summary: {
-    color: 'black',
-    fontSize: 12,
-    marginTop: 10,
-    marginBottom: 10,
+    color: '#333',
+    fontSize: 14,
+    marginBottom: 15,
     textAlign: 'center',
   },
 });
